@@ -1,0 +1,25 @@
+﻿This program is used to test the tile images of an ArcGIS Server Map Service.
+
+USAGE
+{0} "c:\path to\options file.txt"
+The options file is a text file in JSON format.  The JSON object contains the following properties.
+{{
+	"Url":"http://example.com/ArcGIS/rest/mymap/MapServer",
+	"OutputDirectory":"c:\\temp\\output",
+	"MaxDegreeOfParallelism":10,
+	"startLevel":0,
+	"startRow":0,
+	"endLevel":10,
+	"endRow":0,
+	"WriteErrorsOnly":true,
+	"MinimumValidContentLength":1
+}}
+
+The start and end row and level parameters are optional.
+A row parameter will be ignored if there is not a corresponding level parameter.
+
+MaxDegreeOfParallelism (optional) is used to control how many threads are used for testing a row of tiles.  If omitted, -1 (unlimited) is used.
+
+If WriteErrorsOnly (optional) is set to true, data will only be written about rows that contain errors.  If omitted or set to false, all results will be written to the output file.
+
+If a value is provided for MinimumValidContentLength, responses with a Content-Length less than that value will be written to the output even if WriteErrorsOnly is set to true.  (This value has no effect if WriteErrorsOnly is not true.)
