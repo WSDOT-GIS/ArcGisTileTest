@@ -1,4 +1,6 @@
 # git ignore file
+.vs
 bin
 obj
 *.suo
+*.user

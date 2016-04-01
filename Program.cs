@@ -1,20 +1,4 @@
-﻿/*
- * Copyright (c) 2011 Washington State Department of Transportation
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>
- *
- */
+﻿using ArcGisTileTest.Properties;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -24,7 +8,6 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using System.Windows.Forms;
-using ArcGisTileTest.Properties;
 
 namespace ArcGisTileTest
 {
@@ -34,7 +17,7 @@ namespace ArcGisTileTest
         static ParallelOptions _parallelOptions = new ParallelOptions();
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args">
         /// <para>Options file path</para>
@@ -214,7 +197,7 @@ namespace ArcGisTileTest
                             contentLength = tempCl;
                         }
                     }
-                    catch (Exception ex) 
+                    catch (Exception ex)
                     {
                         Trace.TraceWarning("An exception occured at LOD {0}, row {1}, column {2}{3}{4}", lod.level, row, c, Environment.NewLine, ex);
                         theException = ex;
@@ -226,14 +209,14 @@ namespace ArcGisTileTest
                             response.Close();
                         }
                     }
-                    if (theException != null || 
-                        (options.WriteErrorsOnly.HasValue && !options.WriteErrorsOnly.Value) || 
+                    if (theException != null ||
+                        (options.WriteErrorsOnly.HasValue && !options.WriteErrorsOnly.Value) ||
                         (options.MinimumValidContentLength.HasValue && (!contentLength.HasValue || contentLength.Value < options.MinimumValidContentLength.Value))
                         )
                     {
-                        sw.WriteLine("{0},{1},{2},{3},{4},{5},{6},{7},{8}", 
-                            level, row, c, envelope.xmin, envelope.ymin, envelope.xmax, envelope.ymax, 
-                            contentLength.HasValue ? contentLength.Value.ToString() : string.Empty, 
+                        sw.WriteLine("{0},{1},{2},{3},{4},{5},{6},{7},{8}",
+                            level, row, c, envelope.xmin, envelope.ymin, envelope.xmax, envelope.ymax,
+                            contentLength.HasValue ? contentLength.Value.ToString() : string.Empty,
                             theException != null ? string.Format("\"{0}\"", theException.Message) : string.Empty);
                         sw.Flush();
                     }

@@ -1,0 +1,11 @@
+{
+        "Url":"http://example.com/ArcGIS/rest/mymap/MapServer",
+        "OutputDirectory":"c:\\temp\\output",
+        "MaxDegreeOfParallelism":10,
+        "startLevel":0,
+        "startRow":0,
+        "endLevel":10,
+        "endRow":0,
+        "WriteErrorsOnly":true,
+        "MinimumValidContentLength":1
+}

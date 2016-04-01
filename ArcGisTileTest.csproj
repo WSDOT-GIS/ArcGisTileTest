@@ -65,10 +65,14 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="README.md" />
+    <None Include="UNLICENSE" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="HelpFormat.txt" />
-    <Content Include="Options.txt" />
+    <None Include="Options.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
